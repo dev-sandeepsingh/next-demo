@@ -21,12 +21,14 @@ export default function RootLayout({
     <Head>
         <title>Next demo</title>
     </Head>
-      <body className={inter.className}>
-      <div className="layout">
-        <SideNavBar/>
-        {children}
-      </div>
+      <body>
+      <main className='bg-grey-100 min-h-screen'>
+        <div className="layout">
+          <SideNavBar/>
+          {children}
+        </div>
+      </main>
       </body>
-    </html>
+   </html>
   )
 }
