@@ -21,9 +21,9 @@ export default function Home() {
                 <td className="border px-8 py-4">Spain</td>
             </tr>
             <tr>
-                <td class="border px-8 py-4">Ernst Handel</td>
-                <td class="border px-8 py-4">Maggie O'Neill</td>
-                <td class="border px-8 py-4">Austria</td>
+                <td className="border px-8 py-4">Ernst Handel</td>
+                <td className="border px-8 py-4">Maggie O'Neill</td>
+                <td className="border px-8 py-4">Austria</td>
             </tr>
             </tbody>
         </table>
