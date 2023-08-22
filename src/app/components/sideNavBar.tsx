@@ -1,9 +1,10 @@
-import React from 'react'
+'use client'
+import React, {useState} from 'react'
 import Link from "next/link";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
-import { FiMail } from "react-icons/fi";
+import {FiMail, FiUsers} from "react-icons/fi";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Image from "next/image";
 
@@ -14,9 +15,9 @@ const sidebarItems = [
         icon: AiOutlineHome,
     },
     {
-        name: "Mails",
-        href: "/mails",
-        icon: FiMail,
+        name: "Users",
+        href: "/users",
+        icon: FiUsers,
     },
     {
         name: "Contact",
@@ -30,12 +31,16 @@ const sidebarItems = [
     },
 ];
 export default function SideNavBar(){
+    const [isCollapsedSidebar, setIsCollapsedSidebar]= useState<boolean>(false);
+    const toggleSidebarCollapsedHandler=() =>{
+        setIsCollapsedSidebar((prev)=> !prev);
+    }
     return (
         <div className="sidebar__wrapper">
-            <button className="btn">
+            <button className="btn" onClick={toggleSidebarCollapsedHandler}>
                <MdOutlineKeyboardArrowLeft/>
             </button>
-          <aside className="sidebar">
+          <aside className="sidebar" data-collapse={isCollapsedSidebar}>
         <div className="sidebar__top">
             <Image src={"/logo.jpg"} width={80} height={80} className={"sidebar_logo"} alt={"logo"}/>
         </div>
