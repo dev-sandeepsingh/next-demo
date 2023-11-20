@@ -1,7 +1,26 @@
+'use client'
+
+import {useEffect} from "react";
 
 export default function Login() {
+    const onSubmitHandler = async (data) => {
+        // setIsLoading(true);
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: 'kminchelle',
+                password: '0lelplR',
+                // expiresInMins: 60, // optional
+            }),
+        };
+        let response = await fetch('https://dummyjson.com/auth/login', requestOptions);
+        response= await response.json();
+        // alert(response.products[0].title);
+        // The return value is *not* serialized
+        console.log(response);
+    };
     return (
-       <>
            <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
                <div className="sm:mx-auto sm:w-full sm:max-w-md">
                    <img
@@ -13,10 +32,9 @@ export default function Login() {
                        Sign in to your account
                    </h2>
                </div>
-
                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
                    <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-                       <form className="space-y-6" action="#" method="POST">
+                       <form className="space-y-6" onSubmit={onSubmitHandler} method="POST">
                            <div>
                                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                    Email address
@@ -125,6 +143,5 @@ export default function Login() {
                    </p>
                </div>
            </div>
-       </>
     )
 }
