@@ -8,6 +8,7 @@ import { Dialog, Menu, Transition } from '@headlessui/react'
 
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Bars3Icon, BellIcon, XMarkIcon} from "@heroicons/react/24/outline";
+import {Providers} from "@/app/redux/providers";
 
 const userNavigation = [
     { name: 'Your profile', href: '#' },
@@ -173,7 +174,10 @@ export default function RootLayout({
               </div>
 
               <main className="py-10">
-                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
+
+                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                      <Providers>{children}</Providers>
+                  </div>
               </main>
           </div>
       </div>
