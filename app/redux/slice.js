@@ -13,10 +13,13 @@ const Slice = createSlice({
                 id: nanoid(),
                 name: action.payload,
             });
+        },
+        removeUser: (state, action) => {
+            state.users = state.users.filter((user) => user.id !== action.payload);
         }
     }
 });
 
-export const {addUser} = Slice.actions;
+export const {addUser, removeUser} = Slice.actions;
 export default Slice.reducer;
 
